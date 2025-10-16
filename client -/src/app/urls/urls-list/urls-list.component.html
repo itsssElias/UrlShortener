@@ -1,0 +1,40 @@
+<h2>Mis URLs</h2>
+
+<div style="margin-bottom:15px;">
+  <input [(ngModel)]="q" placeholder="Buscar por URL larga..." (keyup.enter)="page=1;load()" style="padding:5px;width:260px;">
+  <button (click)="page=1;load()" style="margin-left:6px;padding:5px 10px;">Buscar</button>
+  <a routerLink="/urls/new" style="margin-left:10px;text-decoration:none;color:#6200ea">+ Nueva</a>
+</div>
+
+<table style="width:100%;border-collapse:collapse">
+  <thead>
+    <tr style="background:#f5f5f5">
+      <th style="text-align:left;padding:6px;border-bottom:1px solid #ddd">Corta</th>
+      <th style="text-align:left;padding:6px;border-bottom:1px solid #ddd">Larga</th>
+      <th style="padding:6px;border-bottom:1px solid #ddd">Clicks</th>
+      <th style="padding:6px;border-bottom:1px solid #ddd">Creada</th>
+      <th style="padding:6px;border-bottom:1px solid #ddd">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of data().items">
+      <td style="padding:6px">
+        <a [href]="shortFull(u.shortCode)" target="_blank">{{ shortFull(u.shortCode) }}</a>
+      </td>
+      <td style="padding:6px;max-width:420px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+        {{ u.longUrl }}
+      </td>
+      <td style="text-align:center;padding:6px">{{ u.clicks }}</td>
+      <td style="text-align:center;padding:6px">{{ u.createdAt | date:'short' }}</td>
+      <td style="text-align:center;padding:6px">
+        <a [routerLink]="['/urls', u._id]">Ver</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="display:flex;gap:8px;align-items:center;margin-top:12px">
+  <button (click)="prev()">Anterior</button>
+  <span>Página {{data().page}} / {{data().pages}}</span>
+  <button (click)="next()">Siguiente</button>
+</div>

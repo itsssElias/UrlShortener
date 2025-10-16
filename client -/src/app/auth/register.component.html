@@ -1,0 +1,10 @@
+<div style="max-width:400px;margin:60px auto;padding:30px;border:1px solid #ccc;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1)">
+  <h2 style="text-align:center;margin-bottom:20px;">Registro</h2>
+  <form (ngSubmit)="submit()" style="display:flex;flex-direction:column;gap:10px">
+    <input [(ngModel)]="name" name="name" placeholder="Nombre completo" required>
+    <input [(ngModel)]="email" name="email" placeholder="Email" required>
+    <input [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" required>
+    <button style="background:#6200ea;color:white;border:none;padding:8px;border-radius:4px;">Crear cuenta</button>
+  </form>
+  <p style="text-align:center;margin-top:10px;">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+</div>

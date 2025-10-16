@@ -1,0 +1,14 @@
+<nav style="display:flex;justify-content:space-between;align-items:center;background:#6200ea;color:#fff;padding:12px 18px">
+  <div style="display:flex;gap:12px;align-items:center">
+    <strong style="font-size:18px">URL Shortener</strong>
+    <a routerLink="/urls" style="color:#fff;text-decoration:none;opacity:.9">Mis URLs</a>
+    <a routerLink="/urls/new" style="color:#fff;text-decoration:none;opacity:.9">+ Nueva</a>
+  </div>
+  <button (click)="logout()" style="background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer">
+    Cerrar sesión
+  </button>
+</nav>
+
+<main style="max-width:1000px;margin:28px auto;padding:0 16px">
+  <router-outlet></router-outlet>
+</main>

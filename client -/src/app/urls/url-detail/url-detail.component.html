@@ -1,0 +1,22 @@
+<div *ngIf="url() as u" style="max-width:520px;display:flex;flex-direction:column;gap:10px">
+  <h2>Detalle</h2>
+
+  <p><b>Corta:</b> <a [href]="shortFull(u.shortCode)" target="_blank">{{ shortFull(u.shortCode) }}</a></p>
+
+  <label>URL larga</label>
+  <input [(ngModel)]="u.longUrl" name="longUrl">
+
+  <label>Activa</label>
+  <input type="checkbox" [(ngModel)]="u.isActive" name="isActive">
+
+  <label>Expira</label>
+  <input type="datetime-local" [(ngModel)]="u.expiresAt" name="expiresAt">
+
+  <p><b>Clicks:</b> {{ u.clicks }}</p>
+
+  <div style="display:flex;gap:8px">
+    <button (click)="save()">Guardar</button>
+    <button (click)="remove()">Eliminar</button>
+    <a routerLink="/urls" style="margin-left:auto">Volver</a>
+  </div>
+</div>

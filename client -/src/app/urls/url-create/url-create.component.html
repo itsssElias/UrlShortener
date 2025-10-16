@@ -1,0 +1,13 @@
+<h2>Nueva URL</h2>
+<form (ngSubmit)="submit()" style="display:flex;flex-direction:column;gap:10px;max-width:520px">
+  <label>URL larga</label>
+  <input [(ngModel)]="longUrl" name="longUrl" placeholder="https://..." required>
+
+  <label>Código personalizado (opcional)</label>
+  <input [(ngModel)]="customCode" name="customCode" placeholder="mi-codigo">
+
+  <label>Expira en (opcional)</label>
+  <input [(ngModel)]="expiresAt" name="expiresAt" type="datetime-local">
+
+  <button>Crear</button>
+</form>
